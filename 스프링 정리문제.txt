@@ -6,7 +6,13 @@
 	>> 프로그래밍 할 때 이미 프레임을 만들어서 제공
 
 3. 프레임워크 종류 2개 이상
-	>> Spring , 닷넷, 장고
+	>> Spring , .net, 장고
+
+4. MVC2와 1의 차이점 
+	>> 2는 완벽하게 분리 (Spring으로 만듦) // 1은 jsp로만 만듦
+
+5. MVC는 무엇의 약자?
+	>> Model //  View // Controller
 
 6. front관련 파일 종류 3개 이상, spring프레임워크상 위치
 	>> html, css, js // webapp
@@ -14,6 +20,18 @@
 7. back관련 파일 종류 3개 이상, spring프레임워크상 위치
 	>> dao, vo, controller // com.multi.mvc00 
 (. 앞에 두개는 무조건 일치해야 하고 뒤에 마지막(mvc00)은 사이트 이름이 되기 때문에 중복될 수 없다)
+
+8. views의 2가지 구분
+	>> webapp // views
+
+9. 어노테이션 3가지 이상
+	>> @Component // @Autowired // @Controller
+
+10. Autowired 어노테이션의 역할
+	>> 싱글톤을 찾아서 주소를 변수에 넣어주세요
+
+11. controller 어노테이션의 역할/작업 2가지
+	>> 컨트롤러로 등록 + 싱글톤 객체 생성
 
 13. pom.xml파일 역할 2가지
 	>> jdk버전, spring버전, 기타 필요한 라이브러리 설정
