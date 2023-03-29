@@ -6,12 +6,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-body {
+body{
 	background: pink;
 }
 </style>
 </head>
 <body>
-회원가입이 완료되었습니다
+업데이트 완료
 </body>
 </html>
