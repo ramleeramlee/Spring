@@ -38,9 +38,9 @@
 
 <h3>검색 화면입니다.</h3>
 <hr color="red">
+<a href='list2'>목록</a>
 <form action='one2.multi' method='get'>
 	no  <input name='no' value='1'><br>
-
 <button type='submit'>전송</button>
 </form>
 <hr color="blue">

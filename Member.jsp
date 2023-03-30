@@ -47,11 +47,12 @@
 
 <h3>회원검색 화면입니다.</h3>
 <hr color="red">
+<a href='list'>모든회원 정보</a>
 <form action='one' method='get'>
 	id  <input name='id' value='apple'><br>
 
 <button type='submit'>전송</button>
 </form>
-<hr color="blue">
+
 </body>
 </html>

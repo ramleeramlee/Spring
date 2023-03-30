@@ -1,5 +1,7 @@
 package com.multi.mvc01;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,5 +35,11 @@ public class BbsController {
 		System.out.println("성공");
 		BbsVO_w bag = dao.one(no);
 		model.addAttribute("bag", bag);
+	}
+	
+	@RequestMapping("list2")
+	public void list(Model model) {
+		ArrayList<BbsVO_w> list = dao.list();
+		model.addAttribute("list", list); //사용하고 나면 사라지므로 이름이 같아도 상관없다
 	}
 }

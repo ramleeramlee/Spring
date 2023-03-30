@@ -1,5 +1,7 @@
 package com.multi.mvc01;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,5 +35,11 @@ public class BookController {
 		System.out.println("성공");
 		BookVO bag = dao.one(id);
 		model.addAttribute("bag", bag);
+	}
+	
+	@RequestMapping("list3.multi")
+	public void list(Model model) {
+		ArrayList<BookVO> list = dao.list();
+		model.addAttribute("list", list);
 	}
 }

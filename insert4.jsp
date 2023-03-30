@@ -6,19 +6,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-body{
+body {
 	background: pink;
 }
 </style>
 </head>
 <body>
-검색완료
-<a href = 'bbs.jsp'>첫 페이지로</a>
-<a href = 'list2'>게시물 전체목록</a>
+<h3><img src='resources/img/완료.png' width='20' height='20'> 등록이 완료되었습니다</h3>
+
 <hr>
-NO >> ${bag.no}<br>
-TITLE >> ${bag.title}<br>
-CONTENT >> ${bag.content}<br>
-WRITER >> ${bag.writer}
+<form action="meeting.jsp" method="get">
+<button type='submit'>메인</button>
+</form>
 </body>
 </html>

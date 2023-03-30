@@ -184,4 +184,62 @@ public BookVO one(int id) {
 	}
 	return bag;
 }
+
+public ArrayList<BookVO> list() {
+	ResultSet rs = null; // 항목명 + 결과 데이터를 담고 있는 테이블
+
+	// 가방들 넣어줄 큰 컨테이너 역할을 부품이 필요!
+	// ArrayList<MemberVO> ==> MemberVO만 들어간 arraylist라는 의미
+	ArrayList<BookVO> list = new ArrayList<>();
+
+	BookVO bag = null;
+	try {
+		// 1.연결한 부품 설정
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		System.out.println("1.mySQL과 자바 연결할 부품 설정 성공.");
+		
+
+		// 2.연결해보자.(java --- oracle)
+		// String url = "jdbc:mysql://localhost:3306/multi";
+		String url = "jdbc:mysql://localhost:3306/multi?serverTimezone=UTC";
+		String user = "root";
+		String password = "1234";
+		Connection con = DriverManager.getConnection(url, user, password); // Connection
+		// String data = JOptionPane.showInputDialog("이름입력"); //String, 임아무개
+		System.out.println("2. mySQL 연결 성공.");
+		
+		
+		String sql = "select * from book";
+		PreparedStatement ps = con.prepareStatement(sql); 
+	
+		System.out.println("3. SQL문 부품(객체)으로 만들어주기 성공.");
+
+		rs = ps.executeQuery(); // select문 전송시
+		System.out.println("4. SQL문 오라클로 보내기 성공.");
+		while (rs.next()) { 
+			int id = rs.getInt(1);
+			String name = rs.getString(2); 
+			String url2 = rs.getString(3); 
+			String img = rs.getString(4); 
+			
+			// 3. 가방을 만들고 값들을 넣는다
+			bag = new BookVO();
+			bag.setId(id);
+			bag.setName(name);
+			bag.setUrl(url2);
+			bag.setImg(img);
+
+			// 4. list에 bag을 추가해주자.
+			list.add(bag);
+		}
+		ps.close();
+		rs.close();
+		con.close();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+	return list;
+
+}
 }
