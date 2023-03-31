@@ -5,14 +5,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-body {
-	background: pink;
-}
-</style>
 </head>
 <body>
-${id}님!! 환영합니다<br>
-<img src='resources/img/완료.png' width='200' height='200'>
+<% session.setAttribute("count", 100); %>
+
+시작현재 카운트 : <%= session.getAttribute("count") %>, ${count}
+<hr>
+<a href="session속성가져오기2.jsp">session속성가져오기2</a>
 </body>
 </html>

@@ -2,6 +2,8 @@ package com.multi.mvc01;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -64,10 +66,14 @@ public class MemberController {
 	}
 	
 	@RequestMapping("login")
-	public String login(MemberVO_w bag) {
+	public String login(MemberVO_w bag, HttpSession session) {
 		System.out.println(bag);
 		int result = dao.login(bag); //1, 0
 		if (result == 1) {
+			
+			// *************로그인이 성공하면, 세션을 잡아두자
+			session.setAttribute("id", bag.getId());
+			
 			return "ok"; //views 아래 파일이름.jsp
 		}else {
 			// 실패 시 views아래가 아닌, webapp아래 member.jsp로 가고 싶은 경우

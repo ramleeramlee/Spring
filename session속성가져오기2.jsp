@@ -9,15 +9,11 @@
 </head>
 <body>
 <%
-if(session.getAttribute("count") == null){
-	out.println("아무도 방문하지 않았습니다");
-}else{
-	out.println("오늘 조회수는 " + session.getAttribute("count") + "번");
-}
-%><br>
-
-오늘 방문횟수는 <%=session.getAttribute("count") %>번
-
+	int count = (int)session.getAttribute("count"); //100이 저장되어 있음
+	count++;
+	session.setAttribute("count", count);
+%>
+현재 설정되어 있는 카운트 ${count}
 
 </body>
 </html>

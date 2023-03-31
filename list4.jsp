@@ -30,9 +30,9 @@ a{
 <input type='submit' value='검색'>
 </form>
 
-<form action="meeting.jsp" method="get">
-<button type='submit'>메인</button>
-</form>
+<a href="meeting.jsp" method="get">
+	<button type='submit'>메인</button>
+</a>
 
 
 <hr>
