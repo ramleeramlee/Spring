@@ -1,4 +1,4 @@
-package com.multi.mvc01;
+package com.multi.mvc200;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Component;
 
-import com.multi.mvc01.BbsVO_w;
+import com.multi.mvc200.BbsVO_w;
 
 // 테이블 하나당 DAO하나! >> 
 @Component

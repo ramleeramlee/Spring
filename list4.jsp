@@ -25,13 +25,8 @@ a{
 </head>
 <body>
 <h3>전체리스트</h3>
-<form action="list5" method="get">
-참석여부 <input type='text' name='search' value='true'>
-<input type='submit' value='검색'>
-</form>
-
 <a href="meeting.jsp" method="get">
-	<button type='submit'>메인</button>
+	<button type='submit'>메인으로</button>
 </a>
 
 

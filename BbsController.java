@@ -1,4 +1,4 @@
-package com.multi.mvc01;
+package com.multi.mvc200;
 
 import java.util.ArrayList;
 
@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class BbsController {
 	@Autowired
 	BbsDAO_w dao;
+	
+	@Autowired
+	ReplyDAO dao2;
 	
 	@RequestMapping("insert2.multi")
 	public void insert(BbsVO_w bag) {
@@ -34,7 +37,11 @@ public class BbsController {
 	public void one(int no, Model model) {
 		System.out.println("성공");
 		BbsVO_w bag = dao.one(no);
+		
+		ArrayList<ReplyVO> list = dao2.list(no);
+		model.addAttribute("list", list);
 		model.addAttribute("bag", bag);
+		
 	}
 	
 	@RequestMapping("list2")

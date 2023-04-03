@@ -1,6 +1,7 @@
-<%@page import="com.multi.mvc01.BbsVO_w"%>
+<%@page import="com.multi.mvc200.BbsVO_w"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,28 +14,20 @@ body{
 </style>
 </head>
 <body>
-검색완료<br>
+
 <a href = 'bbs.jsp'>첫 페이지로</a><br>
 <a href = 'list2'>게시물 전체목록</a><br>
-<hr>
-<%
-// 세션에서 값을 꺼내는 방법
-	String id = (String)session.getAttribute("id");
-// 모델에서 값을 꺼내는 방법
-// model.addAttribute("bag", bag);
-	BbsVO_w bag =(BbsVO_w)request.getAttribute("bag");
-	String writer = bag.getWriter();
-	if(id != null){
-	if(id.equals(writer)){ %>
-<a href="">
-	<button style="background: pink;" >수정</button>
-</a>
-<a href="delete2.multi?no=${bag.no}">
-	<button style="background: pink;" >삭제</button>
-</a>
+<hr color="red">
+게시물검색 처리 요청이 완료되었습니다.
 <br>
-<hr>
-<%}} %>
-
+${bag.no}, ${bag.title}, ${bag.content}, ${bag.writer}
+<hr color="red">
+<div id="result">
+	<c:forEach items="${list}" var="bag">
+		${bag.no}, ${bag.bbsno}, ${bag.content}, ${bag.writer}<br> 
+	</c:forEach>
+</div>
+<hr color="blue">
+댓글달기 <input id="reply"><button id="b1">댓글작성</button><br>
 </body>
 </html>

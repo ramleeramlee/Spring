@@ -34,6 +34,10 @@ name : <input type='text' name='name' value='ARam Lee'>
 검색<br>
 <form action='one4.multi' method='get'>
 name : <input type='text' name='name' value='Silvie Derisly'>
+<input type='submit' value='전송'><br>
+</form>
+<form action='list5.multi' method='get'>
+boolean2 : <input type='text' name='boolean2' value='true'>
 <input type='submit' value='전송'>
 </form>
 <hr>
