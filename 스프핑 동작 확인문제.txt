@@ -1,0 +1,48 @@
+0. 모듈이란
+
+
+1. di란, 무엇의 약자
+	>> depency injection
+	>> @Autowired : 필요할 때 마다 꺼내서 쓰는 역할
+
+2. ioc란, 무엇의 약자
+	>> Inversion of Control
+	>> 프로그래머가 아닌 프레임워크가 전체 제어를 해주기 때문에 프로그램 제어가 역전
+	(= 프로그램의 제어를 스프링프로그램이 이미 다 알아서 해줌)
+3. oop란, 무엇의 약자
+
+
+4. oop의 2대 원칙, 각각이 의미하는 것
+	>> 응집도(하나의 부품에는 하나의 역할만 수행)는 높게 
+	>> 결합도(다른 부품과의 결합을 한정하지 말고 루즈하게 설정)는 낮게
+
+5. pom.xml의 역할
+	>> jdk버전, spring버전
+
+6. tomcat이 웹어플리케이션을 인식하는 첫번째 파일
+	>> web.xml
+
+7. web.xml에는 무엇이 정의되어 있는가?
+	>> listener설정(root-context.xml 에 정의되어 있는 싱글톤 객체 만들기)
+	>> 프론트 컨트롤러 설정(servlet-context.xml >>  디스패처서블릿) 
+	>> 1] 리스너 설정 + 설정파일
+	   2] 디스패처서블릿 + 설정파일
+	   3] 디스패처서블릿 호출은 mvc01 실행 될 때
+
+8. tomcat이 웹어플리케이션을 실행하면서 읽는 xml파일 순서
+	>> 1] web.xml
+	   2] root-context.xml
+	   3] servlet-context.xml
+
+9. root-context.xml의 역할
+	>> 어노테이션으로 싱글톤 만들 수 없는 경우,  xml에 싱글톤 설정
+
+10. dispatcher서블릿의 설정내용을 담고 있는 파일은? 
+	>> servlet-context.xml
+
+11. dispatcher서블릿은 언제 호출되는가, 어떻게 알 수 있는가
+	>> appservlet(싱글톤)실행 후 호출
+	>> console으로 확인 가능
+
+
+
