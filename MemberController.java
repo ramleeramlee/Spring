@@ -1,4 +1,4 @@
-package com.multi.mvc01;
+package com.multi.mvc200;
 
 import java.util.ArrayList;
 
@@ -88,4 +88,18 @@ public class MemberController {
 		model.addAttribute("list", list);
 	}
 	
+	@RequestMapping("one5")
+	public void one5(String id, Model model) {
+		System.out.println(id);
+		MemberVO_w bag = dao.one(id); 
+		model.addAttribute("bag", bag);
+	
+	}
+	
+
+	@RequestMapping("list7")
+	public void list7(Model model) {
+		ArrayList<MemberVO_w> list = dao.list();
+		model.addAttribute("list", list);
+	}
 }

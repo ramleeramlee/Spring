@@ -49,4 +49,30 @@ public class BbsController {
 		ArrayList<BbsVO_w> list = dao.list();
 		model.addAttribute("list", list); //사용하고 나면 사라지므로 이름이 같아도 상관없다
 	}
+	
+	@RequestMapping("list5")
+	public void list5(Model model) {
+		ArrayList<BbsVO_w> list = dao.list();
+		model.addAttribute("list", list);
+	}
+	
+	@RequestMapping("one6")
+	public void one6(int no, Model model) {
+		System.out.println("성공");
+		BbsVO_w bag = dao.one(no);
+		model.addAttribute("bag", bag);
+		
+	}
+	
+	@RequestMapping("update_test2")
+	public void update2(BbsVO_w bag) {
+		System.out.println("성공");
+		dao.update(bag);
+	}
+	
+	@RequestMapping("delete_test2")
+	public void delete2(int no) {
+		System.out.println("성공");
+		dao.delete(no);
+	}
 }
