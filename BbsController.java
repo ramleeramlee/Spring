@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class BbsController {
@@ -74,5 +75,27 @@ public class BbsController {
 	public void delete2(int no) {
 		System.out.println("성공");
 		dao.delete(no);
+	}
+	
+	@RequestMapping("one22")
+	@ResponseBody
+	// views로 넘어가지 않고
+	// return값이 bag데이터를 json으로 만들어서 클라이언트로 전송
+	// 클라이언트 브라우저에서는 success: function(x)
+	// 결과와 함수의 입력변수인 x로 쏙 들어간다
+	public BbsVO_w one22(int no) {
+		System.out.println("성공");
+		BbsVO_w bag = dao.one(no);
+		System.out.println(bag);
+		
+		return bag;
+	}
+	
+	@RequestMapping("list55")
+	@ResponseBody
+	public ArrayList<BbsVO_w> list55() {
+		ArrayList<BbsVO_w> list = dao.list();
+		System.out.println(list.size());
+		return list;
 	}
 }

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller //스프링에서 제어하는 역할로 등록
 public class MemberController {
@@ -102,4 +103,23 @@ public class MemberController {
 		ArrayList<MemberVO_w> list = dao.list();
 		model.addAttribute("list", list);
 	}
+	
+	@RequestMapping("jsonResponse3")
+	@ResponseBody
+	public MemberVO_w jsonResponse3(String id) {
+		System.out.println(id);
+		MemberVO_w bag = dao.one(id); 
+		return bag;
+	
+	}
+	
+
+	@RequestMapping("jsonResponse4")
+	@ResponseBody
+	public ArrayList<MemberVO_w>  jsonResponse4() {
+		ArrayList<MemberVO_w> list = dao.list();
+		
+		return list;
+	}
+	
 }

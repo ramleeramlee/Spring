@@ -26,4 +26,6 @@ public class ProductController {
 		model.addAttribute("list", list);
 	}
 	
+	
+	
 }
