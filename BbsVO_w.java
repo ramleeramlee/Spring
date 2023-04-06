@@ -1,4 +1,4 @@
-package com.multi.mvc200;
+package com.multi.mvc300;
 
 public class BbsVO_w {
 	private int no;

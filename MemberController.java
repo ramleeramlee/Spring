@@ -1,4 +1,4 @@
-package com.multi.mvc200;
+package com.multi.mvc300;
 
 import java.util.ArrayList;
 
@@ -17,14 +17,11 @@ public class MemberController {
 	
 	MemberDAO_w dao; //전역변수(글로벌 변수)
 	
-	// 컨트롤 하는 기능(CRUD) -- 가입, 수정, 탈퇴, 정보검색
-	
 	// 클래스 내에서 기능처리 담당(멤버변수 + 멤버메서드)
 	// 하나의 요청당 하나의 메서드
 	// 하나의 버튼호출당 하나의 함수 연결
 	
 	// 요청된 주소가 어떻게 될 때 바로 아래에 있는 메서드가 호출이 될건지 써주어야 한다
-	// . 뒤에 붙는 내용은 의미없음 그냥 마크표시 같은 느낌?? 안써도 됨(주로 회사 이름)
 	@RequestMapping("insert.multi")
 	public void insert(MemberVO_w bag) {
 		// 메서드의 입력변수(파라메터)로 변수를 선언해두면
@@ -36,9 +33,6 @@ public class MemberController {
 		System.out.println("insert 요청성공");
 		System.out.println(bag);
 		dao.insert(bag);
-		//Member DAO_w dao = new MemberDAO_w();
-		//dao에게 insert요청!!
-		
 	}
 	
 	@RequestMapping("update")
@@ -56,70 +50,70 @@ public class MemberController {
 		
 	}
 	
-	@RequestMapping("one")
-	public void one(String id, Model model) {
-		System.out.println("one 요청성공");
-		System.out.println(id);
-		MemberVO_w bag = dao.one(id); //bag에 검색결과 다 들어있음
-		//views아래 one.jsp로 쓸 수 있도록 설정해주어햐 함
-		model.addAttribute("bag", bag);
-		//views까지 전달할 속성으로 추가해주세요
-	}
+//	@RequestMapping("one")
+//	public void one(String id, Model model) {
+//		System.out.println("one 요청성공");
+//		System.out.println(id);
+//		MemberVO_w bag = dao.one(id); //bag에 검색결과 다 들어있음
+//		//views아래 one.jsp로 쓸 수 있도록 설정해주어햐 함
+//		model.addAttribute("bag", bag);
+//		//views까지 전달할 속성으로 추가해주세요
+//	}
 	
-	@RequestMapping("login")
-	public String login(MemberVO_w bag, HttpSession session) {
-		System.out.println(bag);
-		int result = dao.login(bag); //1, 0
-		if (result == 1) {
-			
-			// *************로그인이 성공하면, 세션을 잡아두자
-			session.setAttribute("id", bag.getId());
-			
-			return "ok"; //views 아래 파일이름.jsp
-		}else {
-			// 실패 시 views아래가 아닌, webapp아래 member.jsp로 가고 싶은 경우
-			return "redirect:Member.jsp"; 
-		}
-	}
+//	@RequestMapping("login")
+//	public String login(MemberVO_w bag, HttpSession session) {
+//		System.out.println(bag);
+//		int result = dao.login(bag); //1, 0
+//		if (result == 1) {
+//			
+//			// *************로그인이 성공하면, 세션을 잡아두자
+//			session.setAttribute("id", bag.getId());
+//			
+//			return "ok"; //views 아래 파일이름.jsp
+//		}else {
+//			// 실패 시 views아래가 아닌, webapp아래 member.jsp로 가고 싶은 경우
+//			return "redirect:Member.jsp"; 
+//		}
+//	}
 	
-	@RequestMapping("list")
-	public void list(Model model) {
-		//Model은 컨트롤러의 list를 views/list.jsp까지만 전달 할 수 있는 객체
-		ArrayList<MemberVO_w> list = dao.list();
-		model.addAttribute("list", list);
-	}
+//	@RequestMapping("list")
+//	public void list(Model model) {
+//		//Model은 컨트롤러의 list를 views/list.jsp까지만 전달 할 수 있는 객체
+//		ArrayList<MemberVO_w> list = dao.list();
+//		model.addAttribute("list", list);
+//	}
 	
-	@RequestMapping("one5")
-	public void one5(String id, Model model) {
-		System.out.println(id);
-		MemberVO_w bag = dao.one(id); 
-		model.addAttribute("bag", bag);
-	
-	}
-	
-
-	@RequestMapping("list7")
-	public void list7(Model model) {
-		ArrayList<MemberVO_w> list = dao.list();
-		model.addAttribute("list", list);
-	}
-	
-	@RequestMapping("jsonResponse3")
-	@ResponseBody
-	public MemberVO_w jsonResponse3(String id) {
-		System.out.println(id);
-		MemberVO_w bag = dao.one(id); 
-		return bag;
-	
-	}
+//	@RequestMapping("one5")
+//	public void one5(String id, Model model) {
+//		System.out.println(id);
+//		MemberVO_w bag = dao.one(id); 
+//		model.addAttribute("bag", bag);
+//	
+//	}
 	
 
-	@RequestMapping("jsonResponse4")
-	@ResponseBody
-	public ArrayList<MemberVO_w>  jsonResponse4() {
-		ArrayList<MemberVO_w> list = dao.list();
-		
-		return list;
-	}
+//	@RequestMapping("list7")
+//	public void list7(Model model) {
+//		ArrayList<MemberVO_w> list = dao.list();
+//		model.addAttribute("list", list);
+//	}
+	
+//	@RequestMapping("jsonResponse3")
+//	@ResponseBody
+//	public MemberVO_w jsonResponse3(String id) {
+//		System.out.println(id);
+//		MemberVO_w bag = dao.one(id); 
+//		return bag;
+//	
+//	}
+	
+
+//	@RequestMapping("jsonResponse4")
+//	@ResponseBody
+//	public ArrayList<MemberVO_w>  jsonResponse4() {
+//		ArrayList<MemberVO_w> list = dao.list();
+//		
+//		return list;
+//	}
 	
 }

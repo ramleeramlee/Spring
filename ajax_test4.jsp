@@ -9,7 +9,11 @@
 <!-- content delivery network : CDN >> 외부서버 연결하는 방식  -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=53a01ce69b80a7ef722a6057980c3e9c"></script>
+
 <script type="text/javascript">
+
 	$(function() {
 		$('#b1').click(function() {
 			$('#result').empty()
@@ -78,6 +82,37 @@
 				}
 			}) //ajax
 		}) //b3
+		
+		$("#b4").click(function() {
+			$('#result').empty()
+			$.ajax({
+				url: "jsonResponse5",
+				dataType: "json",
+				success: function(json) {
+					lat = json.lat
+					lon = json.lon
+					
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+				    mapOption = { 
+				        center: new kakao.maps.LatLng(lat, lon), // 지도의 중심좌표
+				        level: 3 // 지도의 확대 레벨
+				    };
+
+					var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	
+					// 마커가 표시될 위치입니다 
+					var markerPosition  = new kakao.maps.LatLng(lat, lon); 
+	
+					// 마커를 생성합니다
+					var marker = new kakao.maps.Marker({
+					    position: markerPosition
+					});
+	
+					// 마커가 지도 위에 표시되도록 설정합니다
+					marker.setMap(map);
+				}
+			})
+		}) //b4	
 	}) //$
 
 </script>
@@ -89,6 +124,11 @@
 <hr>
 <button id='b3'>member JSONArray(table)</button>
 <hr>
+<button id='b4'>카카오 맵에 코엑스 좌표 찍어보기 </button>
+<hr>
 <div id='result'></div>
+<div id='map' style='width:100%; height:350px;'></div>
+<div id='chart' style='width:900px; height:500px;'></div>
+
 </body>
 </html>
