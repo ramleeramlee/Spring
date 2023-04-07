@@ -1,38 +1,11 @@
-<%@page import="com.multi.mvc200.BbsVO_w"%>
+<%@page import="com.multi.mvc300.BbsVO_w"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript" src="resources/js/jquery-3.6.4.js"></script>
-<script type="text/javascript">
-	$(function() {
-		$('#b1').click(function() {
-			content = $('#reply').val()
-			writer = "apple"
-			$.ajax({
-				url: "insert4",
-				data: {
-					bbsno: ${bag.no},
-					content: content,
-					writer: writer
-				},
-				success: function() {
-					alert('댓글 작성완료')
-					$('#result').append(writer + "<br>" + content + "<br>")
-					$('#reply').val('')
-					// val(): 입력한 값을 가지고 온다
-					// val('~~'): ~~값을 input의 value에 넣는다
-					// 공백으로 ('')표시하면 공백으로 표시 됨
-				}
-			}) //ajax
-		}) //b1
-	}) //$
-
-</script>
 <style>
 body{
 	background: pink;
@@ -40,20 +13,28 @@ body{
 </style>
 </head>
 <body>
-
+검색완료<br>
 <a href = 'bbs.jsp'>첫 페이지로</a><br>
 <a href = 'list2'>게시물 전체목록</a><br>
-<hr color="red">
-게시물검색 처리 요청이 완료되었습니다.
+<hr>
+<%
+// 세션에서 값을 꺼내는 방법
+	String id = (String)session.getAttribute("id");
+// 모델에서 값을 꺼내는 방법
+// model.addAttribute("bag", bag);
+	BbsVO_w bag =(BbsVO_w)request.getAttribute("bag");
+	String writer = bag.getWriter();
+	if(id != null){
+	if(id.equals(writer)){ %>
+<a href="">
+	<button style="background: pink;" >수정</button>
+</a>
+<a href="delete2.multi?no=${bag.no}">
+	<button style="background: pink;" >삭제</button>
+</a>
 <br>
-${bag.no}, ${bag.title}, ${bag.content}, ${bag.writer}
-<hr color="red">
-댓글달기 <input id="reply"><button id="b1">댓글작성</button>
-<hr color="blue">
-<div id="result">
-	<c:forEach items="${list}" var="bag">
-		${bag.writer} <br> ${bag.content}<br> 
-	</c:forEach>
-</div>
+<hr>
+<%}} %>
+
 </body>
 </html>

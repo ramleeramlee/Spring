@@ -12,17 +12,14 @@ body{
 </style>
 </head>
 <body>
-<h3><img src='resources/img/완료.png' width='20' height='20'> 검색완료되었습니다</h3>
+<h3>검색완료</h3>
 <hr>
 <!-- 출력용(Expression Language = EL) -->
-RANK >> ${bag.rank}<br>
-NAME >> ${bag.name}<br>
-PHONE >> ${bag.phone}<br>
-BOOLEAN2 >> ${bag.boolean2}<br>
-TIME >> ${bag.time}<br>
+<img src=resources/img/${bag.title}.jpg width='100' height='100'><br>
+NO >> ${bag.no}<br>
+TITLE >> ${bag.title}<br>
+GENRE >> ${bag.genre}<br>
+PLACE >> ${bag.place}<br>
 
-<form action="meeting.jsp" method="get">
-<button type='submit'>메인</button>
-</form>
 </body>
 </html>

@@ -12,10 +12,7 @@ body{
 </style>
 </head>
 <body>
-<h3><img src='resources/img/완료.png' width='20' height='20'> 수정되었습니다</h3>
+<h3>수정완료</h3>
 <hr>
-<form action="meeting.jsp" method="get">
-<button type='submit'>메인</button>
-</form>
 </body>
 </html>

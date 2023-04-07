@@ -1,6 +1,7 @@
-package com.multi.mvc01;
+package com.multi.mvc300;
 
-import java.util.ArrayList;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,7 +40,7 @@ public class BookController {
 	
 	@RequestMapping("list3.multi")
 	public void list(Model model) {
-		ArrayList<BookVO> list = dao.list();
+		List<BookVO> list = dao.list();
 		model.addAttribute("list", list);
 	}
 }

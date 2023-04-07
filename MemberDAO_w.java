@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,6 @@ public class MemberDAO_w {
 	@Autowired
 	SqlSessionTemplate my;
 	
-//	public ArrayList<MemberVO_w> list() {
-//		
-//		return list;
-//	}
-
 	public int insert(MemberVO_w bag) {
 		int result = my.insert("member.create", bag);
 					// mapper의 namespace.id
@@ -43,18 +39,21 @@ public class MemberDAO_w {
 		return result;
 	}
 
-	
+	public MemberVO_w one(String id) {
+		MemberVO_w bag = my.selectOne("member.one", id);
+		return bag;
+	}
 
-	
+	public List<MemberVO_w> list() {
+		List<MemberVO_w> list = my.selectList("member.all");
+		return list;
+	}
 
 //	public int login(MemberVO_w bag) {
 //		
 //		return result;
 //	}
-//
-//
-//	public MemberVO_w one(String id) {
-//
-//		return bag;
-//	}
+
+
+	
 }

@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.apache.ibatis.jdbc.SQL;
@@ -12,37 +12,37 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.multi.mvc300.BbsVO_w;
+import com.multi.mvc300.ConcertVO;
 
 // 테이블 하나당 DAO하나! >> 
 @Component
-public class BbsDAO_w {
+public class ConcertDAO {
 
 	@Autowired
 	SqlSessionTemplate my;
 	
-	public int insert(BbsVO_w bag) {
-		int result = my.insert("bbs.create", bag);
+	public int insert(ConcertVO bag) {
+		int result = my.insert("concert.create", bag);
 		return result;
 	}
 
-	public int update(BbsVO_w bag) {
-		int result = my.update("bbs.up", bag);
+	public int update(ConcertVO bag) {
+		int result = my.update("concert.update", bag);
 		return result;
 	}
 
-	public int delete(int no) {
-		int result = my.delete("bbs.del", no);
+	public int delete(String title) {
+		int result = my.delete("concert.delete", title);
 		return result;
 	}
 
-		public BbsVO_w one(int no) {
-		BbsVO_w bag = my.selectOne("bbs.one", no);
+		public ConcertVO one(String title) {
+		ConcertVO bag = my.selectOne("concert.one", title);
 		return bag;
 	}
 		
-	public List<BbsVO_w> list() {
-		List<BbsVO_w> list = my.selectList("bbs.all");
+	public List<ConcertVO> list() {
+		List<ConcertVO> list = my.selectList("concert.all");
 		return list;
 
 	}

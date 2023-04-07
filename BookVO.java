@@ -1,4 +1,4 @@
-package com.multi.mvc01;
+package com.multi.mvc300;
 
 public class BookVO {
 

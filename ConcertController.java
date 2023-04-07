@@ -1,6 +1,5 @@
 package com.multi.mvc300;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,47 +7,44 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-
 @Controller
-public class BbsController {
+public class ConcertController {
 	@Autowired
-	BbsDAO_w dao;
+	ConcertDAO dao;
 	
 //	@Autowired
 //	ReplyDAO dao2;
 	
-	@RequestMapping("insert2.multi")
-	public void insert(BbsVO_w bag) {
+	@RequestMapping("insert4")
+	public void insert(ConcertVO bag) {
 		System.out.println("성공");
 		dao.insert(bag);
 	}
 	
-	@RequestMapping("update2.multi")
-	public void update(BbsVO_w bag) {
+	@RequestMapping("update4")
+	public void update(ConcertVO bag) {
 		System.out.println("성공");
 		dao.update(bag);
 	}
 	
-	@RequestMapping("delete2.multi")
-	public void delete(int no) {
+	@RequestMapping("delete4")
+	public void delete(String title) {
 		System.out.println("성공");
-		dao.delete(no);
+		dao.delete(title);
 	}
 
-	@RequestMapping("one2.multi")
-	public void one(int no, Model model) {
+	@RequestMapping("one4")
+	public void one(String title, Model model) {
 		System.out.println("성공");
-		BbsVO_w bag = dao.one(no);
+		ConcertVO bag = dao.one(title);
 		model.addAttribute("bag", bag);
 //		ArrayList<ReplyVO> list = dao2.list(no);
 //		model.addAttribute("list", list);
-		
-		
 	}
 	
-	@RequestMapping("list2")
+	@RequestMapping("list4")
 	public void list(Model model) {
-		List<BbsVO_w> list = dao.list();
+		List<ConcertVO> list = dao.list();
 		model.addAttribute("list", list);
 	}
 	

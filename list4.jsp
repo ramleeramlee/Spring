@@ -14,22 +14,13 @@ body{
 	background: pink;
 }
 td{
-	width: 50px;
+	width: 30px;
 	text-align: center;
-}
-a{
-	text-decoration: none;
-	 color: black;
 }
 </style>
 </head>
 <body>
-<h3>전체리스트</h3>
-<a href="meeting.jsp" method="get">
-	<button type='submit'>메인으로</button>
-</a>
-
-
+<h3>공연 리스트</h3>
 <hr>
 <!-- bag.getId()  -->
 <%--model의 속성으로 전달받은 bag은 EL로 출력한다. --%>
@@ -42,19 +33,17 @@ a{
 <!-- 출력용(Expression Language = EL) -->
 <table class="table table-bordered table-sm">
 <tr class="table-warning">
-	<td>RANK</td>
-	<td>NAME</td>
-	<td>PHONE</td>
-	<td>BOOLEAN2</td>
-	<td>TIME</td>
+	<td>NO</td>
+	<td>TITLE</td>
+	<td>GENRE</td>
+	<td>PLACE</td>
 </tr>
 <c:forEach items="${list}" var="bag" >
 <tr class="table-light">
-	<td>${bag.rank}</td>
-	<td>${bag.name}</td>
-	<td>${bag.phone}</td>
-	<td><a href="meeting.jsp">${bag.boolean2}</a></td>
-	<td>${bag.time}</td>
+	<td>${bag.no}</td>
+	<td><img src=resources/img/${bag.title}.jpg width='100' height='100'><br>${bag.title}</td>
+	<td>${bag.genre}</td>
+	<td>${bag.place}</td>
 </tr>
 </c:forEach>
 </table>

@@ -22,7 +22,7 @@ body{
 			
 		}
  -->
-<c:forEach items="${list}" var="bag" begin="1" end="3" step="2">
+<c:forEach items="${list}" var="bag">
 <!-- 출력용(Expression Language = EL) -->
 ID >> ${bag.id}<br>
 PW >> ${bag.pw}<br>
