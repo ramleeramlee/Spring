@@ -1,0 +1,7 @@
+		   webapp/ .jsp >>> controller(@Controller) >>> dao(@Component) >>> mapper("namespace, id") >>> db
+				    			 @Autowired	          @Autowired
+				    			  DAO dao;	           SqlSessionTemplate my;
+				    			 @RequestMapping
+
+WEB-INF/views/ .jsp(@ taglib) <<< controller(model.addAttribute) <<< dao(return) <<< mapper(resultType) <<< db
+			  <c:forEach>
